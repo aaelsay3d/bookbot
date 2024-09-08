@@ -22,6 +22,15 @@ def count_characters(book_text):
             counter[char] = 1
     return counter
 
+def convert_dict_to_sorted_list_of_dicts(book_characters_counter):
+    list_of_dictionaries = []
+    for char in book_characters_counter:
+        if char.isalpha():
+            list_of_dictionaries.append({char:book_characters_counter[char]})
+
+    list_of_dictionaries.sort(key=sort_on, reverse=True)
+    return list_of_dictionaries
+
 def sort_on(dict):
     key = list(dict.keys())[0]
     return dict[key]
